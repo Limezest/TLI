@@ -1,0 +1,32 @@
+.inline_header {
+	display : inline-block;
+}
+
+.inline_nav * {
+    display : inline ;
+}
+
+#header_right {
+    margin-right:0;
+    width: 50%;
+}
+#header_left {
+    margin-left:0;
+    width: 50%;
+}
+
+#signinup_links *,#signinup_links {
+    list-style: none;
+    text-decoration: none;
+    text-align: right;
+    margin : 0;
+    padding: 0;
+    vertical-align: middle;
+}
+
+#header_background {
+	background-image: url(../images/baniere.jpg);
+    background-size: 200px 100%;
+    background-repeat: no-repeat;
+    height: 200px; 
+}

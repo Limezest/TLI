@@ -1,49 +1,11 @@
- <!doctype html>
- <html lang="fr">
- <head>
- 	<meta charset="utf-8" />
- 	<meta name="keywords" content="xhtml, html5, form" />
- 	<meta name="author" content="VicTeam" />
- 		<title>Oui</title>
-	<link href="style.css" rel="stylesheet" type="text/css"/>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+ "http://www.w3.org/TR/html4/loose.dtd">
+ <html>
+        <head>
+                <title>Test smarty</title>
+        </head>
+        <body>
+                <h1>{$ESSAI}</h1>
+        </body>
+</html>
 
-</head>
-
-
-<span>
-    <img src="images/...jpg" alt="Baniere" />
-</span>
-<span>
- <img src="images/...jpg" alt="Background" />
-</span>
-
-
-
-
-
-
-<div id=connexion>
-	ul>
-		<li><a href="inscription.html">Inscription</a></li>
-		<li><a href="connexion.html">Connexion</a></li>
-</div>
-<nav >
-	<ul>
-		<li><a href="home.html">Home</a></li>
-		<li><a href="recherche.html">Recherche</a></li>
-		<li><a href="recherche_mot.html">Recherche mots clés</a></li>
-		
-	
-	</ul>
-</nav>
-
-
-
- 	<body>
-
-
- 		<footer>	
- 		</footer>
-
- 	</body>
- 	</html>
