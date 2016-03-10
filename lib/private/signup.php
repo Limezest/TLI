@@ -16,24 +16,15 @@
 	echo $sql;
 	
 	// On récupère tout le contenu de la table 
-	$reponse = $bdd->prepare($sql);
+	$req = $bdd->prepare($sql);
 	$req->execute();
-
-
-	/*echo '</ul>';
 
 	while ($donnees = $req->fetch())
 
 	{
-
-		echo '<li>' . $donnees['nom'] ;
-
+		echo $donnees;
 	}
 
-	echo '</ul>';*/
-
-
 	$req->closeCursor();
-	
 
 ?>
