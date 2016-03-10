@@ -1,12 +1,12 @@
 <?php
-		require_once("lib/bd/bdd.php");
+	require_once("lib/bd/bdd.php");
 
-        $email = $_POST["email"];
+    $email = $_POST["email"];
 
-        if (preg_match('^.{1,50}@.{1,4}$', $email)){/*Mot de passe valide*/}
+    if (preg_match('^.{1,50}@.{1,4}$', $email)){/*Mot de passe valide*/}
 
-        $sql = "SELECT * FROM Users WHERE email='$email'";
-    	
-        echo $sql;
+    $sql = "SELECT * FROM Users WHERE email='$email'";
+	
+    echo $sql;
 
 ?>
