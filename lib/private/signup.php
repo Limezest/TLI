@@ -6,12 +6,14 @@
     $lastname = $_POST["lastname"];
     $firstname = $_POST["firstname"];
     $date=date('Y-m-d H:i:s');
-    $preg_status=1;
+    
 
-    if (!(preg_match('/^\w{2,50}$/', $lastname))) {$preg_status=0;$status="Lastname mismatch";}
-    if (!(preg_match('/^\w{2,50}$/', $firstname))) {$preg_status=0;$status="firstname mismatch";}
-    if (!(preg_match('/^.{5,50}$/', $password))){$preg_status=0;$status="password mismatch";}  
-    if (!(preg_match('/^.{1,50}@.{1,4}$/', $email))){$preg_status=0;$status="email mismatch";}
+    // Verification des champs récupérés
+    $preg_status=1;
+    if (!(preg_match('/^\w{2,64}$/', $lastname)))   {$preg_status=0;$status="lastname mismatch";}
+    if (!(preg_match('/^\w{2,64}$/', $firstname)))  {$preg_status=0;$status="firstname mismatch";}
+    if (!(preg_match('/^.{5,256}$/', $password)))    {$preg_status=0;$status="password mismatch";}  
+    if (!(preg_match('/^.{1,64}@.{5,63}$/', $email))){$preg_status=0;$status="email mismatch";}
 
     // Execution de la requete si preg_status=1
     if ($preg_status){
@@ -24,20 +26,20 @@
             echo $stmt->errorCode();
             print_r($stmt->errorInfo());
         }   
-        // Detection des erreur
+        // Detection des erreurs
         if ($stmt->errorCode() != 00000) {
             switch ($stmt->errorCode()){
                 case 23000:
-                    $status = "Utilisateur existe déja" ;
+                    $status = "Users already exist" ;
                     break;
             }
         }
         else {
-            $status = "Success"
+            $status = "Success";
         }
     }
 
-    $array = array('status' => $status,'email' => $email ,'password' => $password,'firstname' => $firstname ,'lastname' => $lastname,'date' => $date);
+    $array = array('status' => $status,'email' => $email,'firstname' => $firstname ,'lastname' => $lastname,'date' => $date);
     echo json_encode($array);
 
 

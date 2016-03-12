@@ -1,7 +1,7 @@
 <?php
 $global_debug=1;
 
-$PARAM_hote='localhost'; // le chemin vers le serveur
+$PARAM_hote='172.17.0.2'; // le chemin vers le serveur
 $PARAM_port='3306';
 $PARAM_nom_bd='tli'; // le nom de votre base de données
 $PARAM_utilisateur='tli'; // nom d'utilisateur pour se connecter
