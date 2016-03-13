@@ -4,6 +4,7 @@ class Users extends Bdd {
 	private $sql_signup = "INSERT INTO users VALUES (NULL,?,?,?,?,?)";
 	private $sql_signin = "SELECT email,firstname,lastname,signup_date FROM users WHERE email=? and password=?";
 	private $sql_isExist = "SELECT * FROM users WHERE email=?";
+	private $sql_chgpasswd = "UPDATE users SET password=? WHERE email=?";
 
 	public function Users($post){
 		parent::__construct();
@@ -27,6 +28,8 @@ class Users extends Bdd {
 				case "userExist";
 					self::userExist($post);
 					break;
+				case "changePasswd";
+					self::changePasswd($post);
 			}
 		}
 
@@ -93,6 +96,23 @@ class Users extends Bdd {
 	public function signOut(){
 		session_start();
 		session_destroy();
+	}
+
+	public function changePasswd($post){
+		session_start();
+		$stmt=parent::executeQuerry($this->sql_signin,array($post["email"] ,$post["password"]));
+
+		// Detection des erreurs
+        switch ($stmt->errorCode()){
+        	case 00000:
+        		$status = "Success";
+        		break;
+            case 23000:
+                $status = "Not unique" ;
+                break;
+        }
+
+        self::toSpeak(array('status' => $status));
 	}
 
 }
