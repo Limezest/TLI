@@ -1,0 +1,13 @@
+body {
+	padding-top: 70px;
+}
+
+#navbar--signin {
+	margin-left:10px;
+}
+.navbar--sign-btn {
+	background-color: #00796B !important;
+	color: white !important;
+}
+
+@media only screen and (max-width: 768px) { }
