@@ -1,5 +1,5 @@
 Inscription
-<form action="lib/private/userClass.php" method="POST">
+<form action="lib/class/userClass.php" method="POST">
 nom :<input type="text" name="firstname"></br>
 prenom :<input type="text" name="lastname"></br>
 password :<input type="text" name="password"></br>
@@ -10,7 +10,7 @@ email :<input type="text" name="email">
 </br>
 </br>
 Connexion
-<form action="lib/private/userClass.php" method="POST">
+<form action="lib/class/userClass.php" method="POST">
 	password :<input type="text" name="password"></br>
 	email :<input type="text" name="email"></br>
 	<input type="submit">
@@ -20,20 +20,20 @@ Connexion
 </br>
 
 Test
-<form action="lib/private/userClass.php" method="POST">
+<form action="lib/class/userClass.php" method="POST">
 	email :<input type="text" name="email">
 	<input type="submit">
 	<input type="hidden" name="action" value="userExist">
 </form>
 
 Deconnexion
-<form action="lib/private/userClass.php" method="POST">
+<form action="lib/class/userClass.php" method="POST">
 	<input type="submit">
 	<input type="hidden" name="action" value="signOut">
 </form>
 
 Recherche
-<form action="lib/private/searchClass.php" method="POST">
+<form action="lib/class/searchClass.php?page=recherche" method="POST">
 	mot :<input type="text" name="keyword"></br>
 	<input type="submit">
 	<input type="hidden" name="action" value="keyword">

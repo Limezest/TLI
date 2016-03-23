@@ -1,7 +1,7 @@
 <?php
 
 abstract class Bdd {
-	private $HOST = "172.17.0.2";
+	private $HOST = "127.0.0.1";
 	private $HOST_PORT = "3306";
 	private $HOST_BASE = "tli";
 	private $HOST_USER = "tli";
@@ -28,6 +28,32 @@ abstract class Bdd {
         	print_r($stmt->errorInfo());
 		}
 		return $stmt;
+	}
+
+	protected function toSpeak($string){
+		echo $string;
+	}
+
+	protected function convertToXml($array){
+		$xml_user_info = new SimpleXMLElement("<?xml version=\"1.0\"?><{$this->action}></{$this->action}>");
+		self::array_to_xml($array,$xml_user_info);
+		self::toSpeak($xml_user_info->asXml());
+	}
+
+	protected function array_to_xml($array,$xml_user_info){
+	    foreach($array as $key => $value) {
+	        if(is_array($value)) {
+	            if(!is_numeric($key)){
+	                $subnode = $xml_user_info->addChild("$key");
+	                self::array_to_xml($value, $subnode);
+	            }else{
+	                $subnode = $xml_user_info->addChild("item$key");
+	                self::array_to_xml($value, $subnode);
+	            }
+	        }else {
+	            $xml_user_info->addChild("$key","$value");
+	        }
+	    }
 	}
 
 }
