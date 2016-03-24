@@ -5,15 +5,13 @@ class Users extends Bdd {
 	private $sql_signin = "SELECT email,firstname,lastname,signup_date FROM users WHERE email=? and password=?";
 	private $sql_isExist = "SELECT * FROM users WHERE email=?";
 	private $sql_chgpasswd = "UPDATE users SET password=? WHERE email=?";
-	protected $action;
+	
 	public function __construct($post){
 		parent::__construct();
-		$this->action=$post["action"];
-		
 		// si données non validées, je quitte
 		$status=self::checkdata($post);
 		if ($status != 1) {
-			parent::convertToxml(array('status' => $status));
+			parent::toSpeak(array('status' => $status));
 		}
 		else {
 			// sinon
@@ -53,7 +51,7 @@ class Users extends Bdd {
         else                        {$status="Success";}
 
         $stmt->closeCursor();
-        parent::convertToxml(array('status' => $status));   
+        parent::toSpeak(array('status' => $status));   
 	}
 	public function signUp($post){
 		$stmt=parent::executeQuerry($this->sql_signup,array($post["email"],$post["password"],$post["firstname"],$post["lastname"],date('Y-m-d H:i:s')));
@@ -68,7 +66,7 @@ class Users extends Bdd {
                 break;
         }
 
-   		parent::convertToxml(array('status' => $status));
+   		parent::toSpeak(array('status' => $status));
 
 	}
 	public function signIn($post){
@@ -89,7 +87,7 @@ class Users extends Bdd {
         }
         $stmt->closeCursor();
 
-    	parent::convertToxml(array('status' => $status));
+    	parent::toSpeak(array('status' => $status));
 	}
 	public function signOut(){
 		session_start();
@@ -110,7 +108,7 @@ class Users extends Bdd {
                 break;
         }
 
-        parent::convertToxml(array('status' => $status));
+        parent::toSpeak(array('status' => $status));
 	}
 
 }

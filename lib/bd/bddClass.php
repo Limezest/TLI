@@ -30,14 +30,15 @@ abstract class Bdd {
 		return $stmt;
 	}
 
-	protected function toSpeak($string){
-		echo $string;
+	protected function toSpeak($array){
+		echo self::convertToXml($array);
 	}
 
 	protected function convertToXml($array){
-		$xml_user_info = new SimpleXMLElement("<?xml version=\"1.0\"?><{$this->action}></{$this->action}>");
+		$xml = "<?xml version=\"1.0\"?><result></result>";
+		$xml_user_info = new SimpleXMLElement($xml);
 		self::array_to_xml($array,$xml_user_info);
-		self::toSpeak($xml_user_info->asXml());
+		return $xml_user_info->asXml();
 	}
 
 	protected function array_to_xml($array,$xml_user_info){

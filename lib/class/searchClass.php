@@ -14,11 +14,9 @@ class Search extends Bdd {
 							FROM patho p 
 							JOIN meridien m ON p.mer = m.code 
 							WHERE p.desc LIKE %?% AND p.desc LIKE %?% AND p.desc LIKE %?%";
-	protected $action;
-	
+
 	public function __construct($post){
 		parent::__construct();
-		$this->action=$POST["action"];
 		$status=self::checkdata($post);
 		if ($status != 1) {
 			parent::toSpeak(array('status' => $status));
@@ -37,18 +35,13 @@ class Search extends Bdd {
 	}
 	private function searchKeyword($post){
 		$stmt=parent::executeQuerry($this->sql_keyword,array($post["keyword"]));
-		parent::convertToXml($stmt->fetchall(PDO::FETCH_ASSOC));
+		parent::toSpeak($stmt->fetchall(PDO::FETCH_ASSOC));
 	}
 
 
 	private function searchFilter($post){
 		$stmt=parent::executeQuerry($this->sql_filter,array($post["champ1"],$post["champ2"],$post["champ3"]));
-
-		parent::toSpeak(array('status' => $stmt->rowcount()));
-		while($row = $stmt->fetch(PDO::FETCH_ASSOC))
-		{
-			parent::toSpeak($row);
-		}
+		parent::toSpeak($stmt->fetchall(PDO::FETCH_ASSOC));
 	}
 
 

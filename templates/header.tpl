@@ -1,30 +1,32 @@
-		<header>
-			<nav class="navbar navbar-toolbar" role="navigation">
-				<div class="container-fluid">
-					<div class="btn-toolbar" role="toolbar">
-						<div id="toolbar__left" >
-							<div id="toolbar__logo" class="navbar-header">
-								<a class="navbar-brand" href="#"  class="toolbar__logo">
-									<img alt="Logo" src="images/logo.jpg" id="logo">
-								</a>
-							</div>
-							<div id="toolbar__name" class="btn-group">
-								<a href="#" class="btn btn-danger navbar-btn">Acunpuncture</a>
-							</div>
-						</div>
-						<div id="toolbar__center" class="btn-group">
-							<a href="#" class="btn btn-default navbar-btn">Accueil</a>
-							<div class="toolbar__center--search">
-								<a href="#" class="btn btn-default navbar-btn">Recherche</a>
-								<a href="#" class="btn btn-default navbar-btn">Recherche par mot(s) clé(s)</a>
-							</div>
-						</div>
+<nav class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+	<div class="container">
+	  <!-- Brand and toggle get grouped for better mobile display -->
+	  <div class="navbar-header">
+		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+		  <span class="sr-only">Afficher le menu</span>
+		  <span class="icon-bar"></span>
+		  <span class="icon-bar"></span>
+		  <span class="icon-bar"></span>
+		</button>
+		<a class="navbar-brand" href="#">L&apos;acupuncture</a>
+	  </div>
 
-						<div class="btn-group pull-right">
-							<a href="#" class="btn btn-default navbar-btn">Inscription</a>
-							<a href="#" class="btn btn-default navbar-btn">Connexion</a>
-						</div>
-					</div>
-				</div>
-			</nav>
-		</header>
+	  <!-- Collect the nav links, forms, and other content for toggling -->
+	  <div class="collapse navbar-collapse navbar-ex1-collapse">
+		<ul class="nav navbar-nav">
+		  <li><a href="/">Accueil</a></li>
+		  <li class="dropdown">
+  			<a href="#" class="dropdown-toggle" data-toggle="dropdown">Recherche <b class="caret"></b></a>
+  			<ul class="dropdown-menu">
+  			  <li><a href="#">Recherche simple</a></li>
+  			  <li><a href="#">Recherche par mots-cl&#233;s</a></li>
+  			</ul>
+		  </li>
+		</ul>
+		 <ul class="nav navbar-nav navbar-right">
+      <a id="navbar--signin" class="btn btn-sm navbar-btn navbar--sign-btn" href="#">Se connecter</a>
+      <a id="navbar--signup" class="btn btn-sm navbar-btn navbar--sign-btn" href="#">S'enregistrer</a>
+     </ul>
+		</div><!-- /.navbar-collapse -->
+	</div>
+</nav>

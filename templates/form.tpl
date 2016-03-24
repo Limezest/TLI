@@ -7,19 +7,11 @@
 							<legend>Legend</legend>
 							<div class="form-group">
 								<label for="exampleInputEmail">Email address</label>
-								<input type="email" class="form-control" id="exampleInputEmail" placeholder="Enter email" title="overall type: EMAIL_ADDRESS
-    server type: EMAIL_ADDRESS
-    heuristic type: EMAIL_ADDRESS
-    field signature: 2441269063
-    form signature: 4190206087986010408">
+								<input type="email" class="form-control" id="exampleInputEmail" placeholder="Enter email">
 							</div>
 							<div class="form-group">
 								<label for="exampleInputPassword">Password</label>
-								<input type="password" class="form-control" id="exampleInputPassword" placeholder="Password" title="overall type: PASSWORD
-    server type: PASSWORD
-    heuristic type: UNKNOWN_TYPE
-    field signature: 1259737546
-    form signature: 4190206087986010408">
+								<input type="password" class="form-control" id="exampleInputPassword" placeholder="Password">
 							</div>
 							<div class="form-group">
 								<label for="exampleDisabledField">Disabled field</label>
