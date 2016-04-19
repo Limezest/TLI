@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+
+<pathologies>
+	<!-- Premier Exemple -->
+	<pathologie>
+	<description type="me">méridien du poumon externe</description>
+	<meridien>P</meridien>
+</pathologies>
+
+<pathologies>
+	<!-- Deuxiéme Exemple -->
+	<pathologie>
+	<description type="lp">voie luo du gros intestin pleine</description>
+	<meridien>GI</meridien>
+</pathologies>
