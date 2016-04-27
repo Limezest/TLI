@@ -2,7 +2,7 @@
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance">
 
 	<xsd:element name="description" type="xsd:string"/>
-    <xsd:element name="meridien" type="xsd:string"/>
+    	<xsd:element name="meridien" type="xsd:string"/>
 	<xsd:element name="type" type="xsd:string"/>
 	
 	<xsd:element name="pathologies">
