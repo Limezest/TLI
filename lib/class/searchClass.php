@@ -1,6 +1,7 @@
 <?php
 //Class de recherche dans la base de données
-require_once("../bd/bddClass.php");
+require_once("lib/bd/bddClass.php");
+require_once("lib/class/errorClass.php");
 class Search extends Bdd {
 	private $sql_keyword ="	SELECT p.type AS Type, p.desc AS Description, m.nom AS Medidien, m.element AS Element
 					FROM patho p

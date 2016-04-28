@@ -18,9 +18,9 @@
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Recherche <b class="caret"></b></a>
 					<ul class="dropdown-menu">
-						{if $connected eq 1}
+						{*if $connected eq 1*}
 							<li><a href="index.php?page=search">Recherche par mots-cl&#233;s</a></li>
-						{/if}
+						{*/if*}
 						<li><a href="index.php?page=advancedsearch">Recherche par filtres</a></li>
 					</ul>
 				</li>

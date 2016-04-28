@@ -30,11 +30,7 @@ abstract class Bdd {
 	}
 
 	protected function toSpeak($array){
-		GLOBAL $smarty;
-		if ($array['status']="False"){
-			$smarty->assign("error","1");			
-		}
-		#echo self::convertToXml($array);
+		echo json_encode($array);
 	}
 
 	protected function convertToXml($array){

@@ -5,36 +5,40 @@
 	$smarty->setPluginsDir('lib/private/');
 	$smarty->assign("error","0");
 	
-	$page = isset($_GET['page']);
-	$action = isset($_POST['kind_action']);
+	$pageExist = isset($_GET['page']);
+	$actionExist = isset($_POST['kind_action']);
+	
 	
 	session_start();
 	if (empty($_SESSION["signin"])){
 		$smarty->assign('connected','0');
 	} else {$smarty->assign('connected','1');}
 	
-
-	if ($page) {
-		if(file_exists("templates/".$_GET['page'].'.tpl')) {
-			$smarty->assign("container",$_GET['page'].".tpl");
-		} else {
-			header("HTTP/1.0 404 Not Found");
-			$smarty->assign("container","404.tpl");
+	$page = "accueil";
+	if ($pageExist) {
+		if (preg_match('/^[a-z]{2,25}$/',$_GET['page'])) {
+			if(file_exists("templates/".$page.'.tpl')) {
+				$page = $_GET['page'];
+			} else {
+				header("HTTP/1.0 404 Not Found");
+				$page = "404";
+			}
 		}
-	} else {
-		$smarty->assign("container","accueil.tpl");
 	}
+	$smarty->assign("container",$page.".tpl");
 	
-	if ($action){
-		switch ($_POST['kind_action']) {
-    	case "auth":
-        	require("lib/class/userClass.php");
-		 	new Users($_POST);	
-        	break;
-		case "search":
-			require("lib/class/searchClass.php");
-			new Search($_POST);
-        	break;
+	if ($actionExist){
+		if (preg_match('/^[a-z]{2,25}$/',$_POST['kind_action'])) {
+			switch ($_POST['kind_action']) {
+				case "auth":
+					require("lib/class/userClass.php");
+					new Users($_POST);	
+					break;
+				case "search":
+					require("lib/class/searchClass.php");
+					new Search($_POST);
+					break;
+			}
 		}
 	}
 	$smarty->display('templates/index.tpl');
