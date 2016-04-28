@@ -54,8 +54,3 @@ class Search extends Bdd {
 		return $status;
 	}
 }
-
-new Search($_POST);
-
-?>
-

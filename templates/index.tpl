@@ -9,6 +9,9 @@
       {include file="templates/header.tpl"} 
     </header>
     <section>
+      {if $error eq '1'}
+        {include file="templates/error.tpl"} 
+      {/if}
       {include file="templates/$container"} 
     </section>
     <script src="http://code.jquery.com/jquery.js"></script>

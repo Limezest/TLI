@@ -1,5 +1,6 @@
 <?php
-require_once("../bd/bddClass.php");
+require_once("lib/bd/bddClass.php");
+require_once("lib/class/errorClass.php");
 class Users extends Bdd {
 	private $sql_signup = "INSERT INTO users VALUES (NULL,?,?,?,?,?)";
 	private $sql_signin = "SELECT email,firstname,lastname,signup_date FROM users WHERE email=? and password=?";
@@ -9,9 +10,9 @@ class Users extends Bdd {
 	public function __construct($post){
 		parent::__construct();
 		// si données non validées, je quitte
-		$status=self::checkdata($post);
-		if ($status != 1) {
-			parent::toSpeak(array('status' => $status));
+		$error=self::checkdata($post);
+		if ($error != "0") {
+			Error::getError(array('error' => "1",'error_msg'=>$error));
 		}
 		else {
 			// sinon
@@ -36,22 +37,22 @@ class Users extends Bdd {
 	}
 
 	private function checkData($data){
-		$status=1;
-	    if (isset($data["lastname"]) && !(preg_match('/^\w{2,64}$/', $data["lastname"])))		{$status="lastname mismatch";}
-	    if (isset($data["firstname"]) && !(preg_match('/^\w{2,64}$/', $data["firstname"])))		{$status="firstname mismatch";}
-	    if (isset($data["password"]) && !(preg_match('/^.{5,256}$/', $data["password"])))		{$status="password mismatch";}
-	    if (isset($data["email"]) && !(preg_match('/^.{1,64}@.{1,63}$/', $data["email"])))		{$status="email mismatch";}
-		return $status;
+		$error_msg="0";
+	    if (isset($data["lastname"]) && !(preg_match('/^\w{2,64}$/', $data["lastname"])))		{$error_msg="lastname mismatch";}
+	    if (isset($data["firstname"]) && !(preg_match('/^\w{2,64}$/', $data["firstname"])))		{$error_msg="firstname mismatch";}
+	    if (isset($data["password"]) && !(preg_match('/^.{5,256}$/', $data["password"])))		{$error_msg="password mismatch";}
+	    if (isset($data["email"]) && !(preg_match('/^.{1,64}@.{1,63}$/', $data["email"])))		{$error_msg="email mismatch";}
+		return $error_msg;
 	}
 
 	public function userExist($post){
 		$stmt=parent::executeQuerry($this->sql_isExist,array($post["email"]));
 
-        if ($stmt->rowcount() == 0) {$status="Utilisateur n'existe pas";}
-        else                        {$status="Success";}
+        if ($stmt->rowcount() == 0) {$error_msg="Utilisateur n'existe pas";$error="1";}
+        else                        {$error="0";}
 
         $stmt->closeCursor();
-        parent::toSpeak(array('status' => $status));   
+        Error::getError(array('error' => $error,'error_msg'=>$error_msg));   
 	}
 	public function signUp($post){
 		$stmt=parent::executeQuerry($this->sql_signup,array($post["email"],$post["password"],$post["firstname"],$post["lastname"],date('Y-m-d H:i:s')));
@@ -59,24 +60,28 @@ class Users extends Bdd {
         // Detection des erreurs
         switch ($stmt->errorCode()){
         	case 00000:
-        		$status = "Success";
+        		$error = "1";
+				$error_msg = " Vous etes correctement enregistré";
         		break;
             case 23000:
-                $status = "Utilisateur exsite deja" ;
+				$error="1";
+                $error_msg = "Utilisateur exsite deja" ;
                 break;
         }
 
-   		parent::toSpeak(array('status' => $status));
+   		Error::getError(array('error' => $error,'error_msg'=>$error_msg));   
 
 	}
 	public function signIn($post){
 		$stmt=parent::executeQuerry($this->sql_signin,array($post["email"] ,$post["password"]));
-        
         if ($stmt->rowcount() == 0) {
-        	$status = "False";
+        	$error = "1";
+			$error_msg = "Votre identifiant ou votre mot de passe est incorrect";
+			$urlto = "signin";
         }
         else {
-            $status = "Success";
+            $error = "0";
+			$urlto = "index.php";
             $result = $stmt->fetch(PDO::FETCH_ASSOC);
             // Début de la session PHP
             session_start();
@@ -84,33 +89,29 @@ class Users extends Bdd {
             $_SESSION["lastname"]=$result["lastname"];
             $_SESSION["email"]=$result["email"];
             $_SESSION["signup_date"]=$result["signup_date"];
+			$_SESSION["signin"]="1";
         }
         $stmt->closeCursor();
-
-    	parent::toSpeak(array('status' => $status));
+		Error::getError(array('error' => $error,'error_msg'=>$error_msg,'urlto' => $urlto));
+    	//parent::toSpeak(array('status' => $error));
 	}
 	public function signOut(){
-		session_start();
+		//session_start();
 		session_destroy();
+		Error::getError(array('error' => "0",'urlto'=>"index.php"));
 	}
 
 	public function changePasswd($post){
-		session_start();
+		//session_start();
 		$stmt=parent::executeQuerry($this->sql_signin,array($post["email"] ,$post["password"]));
-
-		// Detection des erreurs
-        switch ($stmt->errorCode()){
-        	case 00000:
-        		$status = "Success";
-        		break;
-            case 23000:
-                $status = "Not unique" ;
-                break;
-        }
-
-        parent::toSpeak(array('status' => $status));
+		
+		if ($stmt->errorCode() == 00000) {
+			$error="0";
+		} else {
+			$error="1";
+			$error_msg = "Contacter l'administrateur du site";
+		}
+		
+        Error::getError(array('error' => $error,'error_msg'=>$error_msg));   
 	}
-
 }
-new Users($_POST);
-?>

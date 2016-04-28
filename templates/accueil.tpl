@@ -5,6 +5,9 @@
 				<h1>L&apos;acupuncture c&apos;est bien pour les gens</h1>
 				<p>oui c&apos;est tr&#232;s bien</p>
 			</div>
+			<div>
+				{rss}
+			</div>
 		</div>
 	</div>
 </div>

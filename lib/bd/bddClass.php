@@ -1,5 +1,4 @@
 <?php
-
 abstract class Bdd {
 	private $HOST = "127.0.0.1";
 	private $HOST_PORT = "3306";
@@ -31,7 +30,11 @@ abstract class Bdd {
 	}
 
 	protected function toSpeak($array){
-		echo self::convertToXml($array);
+		GLOBAL $smarty;
+		if ($array['status']="False"){
+			$smarty->assign("error","1");			
+		}
+		#echo self::convertToXml($array);
 	}
 
 	protected function convertToXml($array){
@@ -58,4 +61,3 @@ abstract class Bdd {
 	}
 
 }
-?>
