@@ -35,8 +35,12 @@ class Search extends Bdd {
 		}
 	}
 	private function searchKeyword($post){
+		
+		
 		$stmt=parent::executeQuerry($this->sql_keyword,array($post["keyword"]));
-		parent::toSpeak(self::convertToArray($stmt));
+        parent::toSpeak(self::convertToArray($stmt));
+
+       
 	}
 
 

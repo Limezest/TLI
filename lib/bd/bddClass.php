@@ -3,8 +3,8 @@ abstract class Bdd {
 	private $HOST = "127.0.0.1";
 	private $HOST_PORT = "3306";
 	private $HOST_BASE = "tli";
-	private $HOST_USER = "tli";
-	private $HOST_PASS = "tli";
+	private $HOST_USER = "root";
+	private $HOST_PASS = "";
 	private $bdd;
 	private $bdd_debug = 0;
 

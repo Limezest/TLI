@@ -8,6 +8,8 @@
     <header>
       {include file="templates/header.tpl"} 
     </header>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+     <script src="js/search.js"></script>
     <section>
       {if $error eq '1'}
         {include file="templates/error.tpl"} 
