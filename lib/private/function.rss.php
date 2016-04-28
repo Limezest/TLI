@@ -8,7 +8,7 @@
  * Rôle :     affiche RSS
  * -------------------------------------------------------------
  */
-function smarty_function_rss()
+function smarty_function_rss($params, &$smarty)
 {
 	$rss = new DOMDocument();
 	$rss->load('http://aim.bmj.com/rss/mfr.xml');

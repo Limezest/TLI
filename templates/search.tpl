@@ -1,7 +1,7 @@
 <article class="form-group">
-        <form method="POST" action="index.php?page=search">
+        <form method="POST" action="/tli/search">
             <label for="keyword">Mot clé</label>
-            <input type="text" class="form-control" name="keyword" placeholder="un mot">
+            <input type="text" class="form-control" id="keyword" name="keyword" placeholder="un mot">
             <input type="submit" class="button-submit btn btn-default pull-right" value="Rechercher">
             <input type="hidden" name="action" value="keyword">
             <input type="hidden" name="kind_action" value="search">

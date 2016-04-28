@@ -1,9 +1,17 @@
 <article class="form-group">
-        <form method="POST" action="index.php?page=search">
-            <label for="keyword">Mot clé</label>
-            <input type="text" class="form-control" name="keyword" placeholder="un mot">
+        <form method="POST" action="/tli/advancedsearch">
+            <label for="description">Description</label>
+            <input type="text" class="form-control" name="description" placeholder="Une petite description">
+            <label for="type">Type</label>
+            <select name="patho" class="form-control">
+                {genSelect choix='patho_type'}
+            </select>
+            <label for="meridien">Méridien</label>
+            <select name="meridien" class="form-control">
+                {genSelect choix='meridien_nom'}
+            </select>
             <input type="submit" class="button-submit btn btn-default pull-right" value="Rechercher">
-            <input type="hidden" name="action" value="keyword">
+            <input type="hidden" name="action" value="filter">
             <input type="hidden" name="kind_action" value="search">
         </form>
 </article>
