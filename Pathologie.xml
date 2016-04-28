@@ -5,6 +5,7 @@
 	<pathologie>
 	<description type="me">méridien du poumon externe</description>
 	<meridien>P</meridien>
+	<idP>1</idP>
 </pathologies>
 
 <pathologies>
@@ -12,4 +13,5 @@
 	<pathologie>
 	<description type="lp">voie luo du gros intestin pleine</description>
 	<meridien>GI</meridien>
+	<idP>12</idP>
 </pathologies>
