@@ -17,7 +17,7 @@
 	$page = "accueil";
 	if ($pageExist) {
 		if (preg_match('/^[a-z]{2,25}$/',$_GET['page'])) {
-			if(file_exists("templates/".$page.'.tpl')) {
+			if(file_exists("templates/".$_GET['page'].'.tpl')) {
 				$page = $_GET['page'];
 			} else {
 				header("HTTP/1.0 404 Not Found");
