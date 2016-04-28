@@ -1,5 +1,5 @@
 <div class="form-group">
-	<form method="POST" action="index.php?page=signin">
+	<form method="POST" action="/tli/signin">
 		<label for="email">Email</label>
 		<input type="email" class="form-control" name="email" placeholder="Enter email">
 		<label for="password">Mot de passe</label>

@@ -10,7 +10,7 @@ abstract class Bdd {
 
 	public function __construct(){
 		try {
-			$this->bdd = new PDO('mysql:host='.$this->HOST.';port='.$this->HOST_PORT.';dbname='.$this->HOST_BASE, $this->HOST_USER, $this->HOST_PASS);
+			$this->bdd = new PDO('mysql:host='.$this->HOST.';port='.$this->HOST_PORT.';dbname='.$this->HOST_BASE.';charset=UTF8', $this->HOST_USER, $this->HOST_PASS);
 		}
 		catch (Exception $e) {
 			die('Erreur : ' . $e->getMessage());

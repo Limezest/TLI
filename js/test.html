@@ -1,88 +1,32 @@
-{extends file="templates/generics/main.tpl"}
-{block name=additionalCSS}
-	<link rel="stylesheet" href="data/css/bootstrap-multiselect.css" type="text/css"/>
-	<link rel="stylesheet" href="data/css/dataTables.bootstrap.min.css" type="text/css"/>
-	<link rel="stylesheet" href="data/css/filtrage.css" type="text/css"/>
-	<link rel="stylesheet" href="data/css/jquery.tagit.css" type="text/css"/>
-	<link rel="stylesheet" href="data/css/tagit.ui-zendesk.css" type="text/css"/>
-{/block}
-
-{block name=contenu}
-
-<div class="displayPathology text-center">
-
-    <div id="sorting" class="hidden">
-    	<fieldset> <legend>Rechercher des pathologies</legend>
-    {if $logged==true}
-		<div id="tagName" class="hidden">
-			<p>
-				<input name="tags" id="mySingleField" value="" class="hidden"/> <!-- only disabled for demonstration purposes -->
-			</p>
-			<ul id="singleFieldTags"></ul>
-		</div>
-    {/if}
-		<div id="selectionFiltre" class="searchContent">
-			<select id="selectTypePatho" class="select" multiple="multiple" name="Types de Pathologie">
-				 {foreach from=$listTypePatho item=typePatho}
-					<option value="{$typePatho->getCode()}">{$typePatho->getLibelle()}</option>
-				 {/foreach}
-			</select>
-
-			<select id="selectCarac" class="select" multiple="multiple" name="Caractéristiques">
-				{foreach from=$listCaracteristiquePatho item=carac}
-					<option value="{$carac->getCode()}">{$carac->getLibelle()}</option>
-				{/foreach}
-			</select>
-
-			<select id="selectMeridien" class="select" multiple="multiple" name="Méridiens">
-				 {foreach from=$listMeridien item=meridien}
-					<option value="{$meridien->getCode()}">{$meridien->getNom()}</option>
-				 {/foreach}
-			</select>
-		</div>
-
-		<div class="searchContent">
-				<button id="submitCriteria" class="btn btn-default btn-filtrer">
-					<span class="glyphicon glyphicon-search"></span> Rechercher
-				</button>
-
-				<button id="multiselectResetButton" class="btn btn-default btn-reset">
-					<span class="glyphicon glyphicon-repeat"></span> Réinitialiser
-				</button>
-		</div>
-
-		<div class="noCriteriaMessage alert alert-danger">
-		  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-		  Aucun critère n'a été sélectionné!
-		</div>
-
-		<div class="displayCriteria alert alert-info"></div>
-		</fieldset>
-
-    		<table id="pathoTable" class="table table-responsive table-striped table-bordered" cellspacing="0" width="100%">
-    			<thead>
-	    			<tr>
-	    				<th>Pathologies</th>
-	    				<th>Méridiens</th>
-	    				<th>Symptômes</th>
-	    			</tr>
-    			</thead>
-    		</table>
+<!doctype html>
+ <html lang="fr">
+ <head>
+ 	<meta charset="utf-8" />
+ 	<meta name="keywords" content="xhtml, html5, form" />
+ 	<meta name="author" content="VicTeam" />
+ 	
+ <script type="text/javascript" src="script.js"></script>
+ <script src="jquery-1.12.2.js"></script>
+ 	<title>Accueil</title>
+ 	
 
 
-	</div>
-</div>
+ </head>
+
+ <body>
 
 
-	<script type="text/javascript" src="bootstrap-multiselect.js"></script>
-	<script type="text/javascript" src="jquery.dataTables.min.js"></script>
-	<script type="text/javascript" src="dataTables.bootstrap.min.js"></script>
-	<script type="text/javascript" src="jquery-ui.min.js"></script>
-	<script type="text/javascript" src="tag-it.js"></script>
-	<script language="JavaScript" type="text/javascript">
-		var sampleTag = '{$listeKeyword}';
-		var listePatho = '{$listPatho}';
-	</script>
-	<script type="text/javascript" src="filtrage.js"></script>
+
+<form action="test.html" method="post" id="form" oninput="getInfos()">
+  Meridien : 
+	<input id="meridien" type="text" value="kk"></input>
+	
 
 
+<button type="submit" form="form" value="Submit">Submit</button>
+</form>
+
+
+ </body>
+
+ </html>

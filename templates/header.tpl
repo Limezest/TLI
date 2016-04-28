@@ -8,27 +8,27 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="#">L&apos;acupuncture</a>
+			<a class="navbar-brand" href="/tli/">L&apos;acupuncture</a>
 	  </div>
 
 	  <!-- Collect the nav links, forms, and other content for toggling -->
 	  <div class="collapse navbar-collapse navbar-ex1-collapse">
 			<ul class="nav navbar-nav">
-				<li><a href="index.php">Accueil</a></li>
+				<li><a href="/tli/">Accueil</a></li>
 				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Recherche <b class="caret"></b></a>
+					<a href="/tli/" class="dropdown-toggle" data-toggle="dropdown">Recherche <b class="caret"></b></a>
 					<ul class="dropdown-menu">
 						{*if $connected eq 1*}
-							<li><a href="index.php?page=search">Recherche par mots-cl&#233;s</a></li>
+							<li><a href="/tli/search">Recherche par mots-cl&#233;s</a></li>
 						{*/if*}
-						<li><a href="index.php?page=advancedsearch">Recherche par filtres</a></li>
+						<li><a href="/tli/advancedsearch">Recherche par filtres</a></li>
 					</ul>
 				</li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				{if $connected eq 0 }
-					<a id="navbar--signin" class="btn btn-sm navbar-btn navbar--sign-btn" href="index.php?page=signin">Se connecter</a>
-					<a id="navbar--signup" class="btn btn-sm navbar-btn navbar--sign-btn" href="index.php?page=signup">S'enregistrer</a>
+					<a id="navbar--signin" class="btn btn-sm navbar-btn navbar--sign-btn" href="/tli/signin">Se connecter</a>
+					<a id="navbar--signup" class="btn btn-sm navbar-btn navbar--sign-btn" href="/tli/signup">S'enregistrer</a>
 				{else}
 					{include file="templates/signout.tpl"} 
 				{/if}

@@ -38,10 +38,10 @@ class Users extends Bdd {
 
 	private function checkData($data){
 		$error_msg="0";
-	    if (isset($data["lastname"]) && !(preg_match('/^\w{2,64}$/', $data["lastname"])))		{$error_msg="lastname mismatch";}
-	    if (isset($data["firstname"]) && !(preg_match('/^\w{2,64}$/', $data["firstname"])))		{$error_msg="firstname mismatch";}
-	    if (isset($data["password"]) && !(preg_match('/^.{5,256}$/', $data["password"])))		{$error_msg="password mismatch";}
-	    if (isset($data["email"]) && !(preg_match('/^.{1,64}@.{1,63}$/', $data["email"])))		{$error_msg="email mismatch";}
+	    if (isset($data["lastname"]) && !(preg_match('/^\w{2,64}$/', $data["lastname"])))		{$error_msg="Votre nom ne correspond pas aux criteres";}
+	    if (isset($data["firstname"]) && !(preg_match('/^\w{2,64}$/', $data["firstname"])))		{$error_msg="Votre prenom ne correspond pas aux criteres";}
+	    if (isset($data["password"]) && !(preg_match('/^.{5,256}$/', $data["password"])))		{$error_msg="Votre mot de passe ne correspond pas aux criteres";}
+	    if (isset($data["email"]) && !(preg_match('/^.{1,64}@.{1,63}$/', $data["email"])))		{$error_msg="Votre email ne repond pas aux criteres";}
 		return $error_msg;
 	}
 

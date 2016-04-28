@@ -1,5 +1,5 @@
 <div class="form-group">
-	<form method="POST" action="index.php?page=signup">
+	<form method="POST" action="/tli/signup">
 		<label for="firstname">Prenom</label>
 		<input type="text" class="form-control" name="firstname" placeholder="Jean">
 		<label for="lastname">Nom</label>
