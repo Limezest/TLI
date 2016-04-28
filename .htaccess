@@ -1,3 +1,8 @@
 RewriteEngine On
-RewriteRule ^\/tli\/(.+)$ /tli/index.php?page=$1 [QSA,NC,L]
-ErrorDocument 404 /templates/404.tpl
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_URI} !^.*\.(jpg|css|js|gif|png)$ [NC]
+RewriteCond %{REQUEST_URI} !^lib.*$ [NC]
+RewriteRule ^\/tli\/(.*)$ /tli/index.php?page=$1 [QSA,NC,L]
+
+ErrorDocument 404 /tli/templates/404.tpl
