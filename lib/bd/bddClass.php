@@ -17,11 +17,10 @@ abstract class Bdd {
 		}
 	}
 
-	protected function executeQuerry($sql,$param){
+	protected function executeQuerry($sql){
 		$stmt = $this->bdd->prepare($sql);
-		$stmt->execute($param);
+		$stmt->execute();
 		if ($this->bdd_debug){
-			echo print_r($param);
 			echo $stmt->queryString;
         	echo $stmt->errorCode();
         	print_r($stmt->errorInfo());
