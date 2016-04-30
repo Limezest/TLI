@@ -1,53 +1,23 @@
 <article class="form-group">
-        <form method="POST" action="/tli/search">
-            <label for="keyword">Mot clé</label>
-            <input type="text" class="form-control" id="keyword" name="keyword" placeholder="un mot">
-            <input type="submit" class="button-submit btn btn-default pull-right" value="Rechercher">
-            <input type="hidden" name="action" value="keyword">
-            <input type="hidden" name="kind_action" value="search">
-        </form>
+    <label for="keyword">Mot cl&#233;</label>
+    <input type="text" class="form-control" id="keyword" name="keyword" pattern='.{ldelim}3,{rdelim}' placeholder="un mot">
+    <label for="keywordList" class="mt">Liste des mots clés</label>
+    <select id="keywordList" class="form-control">
+        {getKeywords}
+    </select>
 </article>
 
-<article>
-    <table class="table table-hover">
+<article class="col-sm-12 col-lg-12">
+    <table id="resultDataTable" class="table table-hover table-striped" summary="R&#233;sultats de votre recherche">
             <thead>
             <tr>
-                <th>#</th>
-                <th>First Name</th>
-                <th>Tables</th>
+                <th scope="col">Type</th>
+                <th scope="col">Description</th>
+                <th scope="col">M&#233;ridien</th>
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>1</td>
-                <td>Michael</td>
-                <td>Are formatted like this</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>Lucille</td>
-                <td>Do you like them?</td>
-            </tr>
-            <tr class="success">
-                <td>3</td>
-                <td>Success</td>
-                <td></td>
-            </tr>
-            <tr class="danger">
-                <td>4</td>
-                <td>Danger</td>
-                <td></td>
-            </tr>
-            <tr class="warning">
-                <td>5</td>
-                <td>Warning</td>
-                <td></td>
-            </tr>
-            <tr class="active">
-                <td>6</td>
-                <td>Active</td>
-                <td></td>
-            </tr>
             </tbody>
     </table>
 </article>
+<script src='js/search.js'></script>
