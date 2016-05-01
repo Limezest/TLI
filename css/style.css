@@ -18,3 +18,12 @@ body {
 	margin-top: 2%;
 }
 @media only screen and (max-width: 768px) { }
+
+span.tooltip[aria-hidden='false'] {
+   display:block ;
+   
+}
+
+span.tooltip[aria-hidden='true'] {
+   display: none;
+}
