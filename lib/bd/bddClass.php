@@ -1,5 +1,4 @@
 <?php
-
 abstract class Bdd {
 	private $HOST = "127.0.0.1";
 	private $HOST_PORT = "3306";
@@ -11,18 +10,46 @@ abstract class Bdd {
 
 	public function __construct(){
 		try {
-			$this->bdd = new PDO('mysql:host='.$this->HOST.';port='.$this->HOST_PORT.';dbname='.$this->HOST_BASE, $this->HOST_USER, $this->HOST_PASS);
+			$this->bdd = new PDO('mysql:host='.$this->HOST.';port='.$this->HOST_PORT.';dbname='.$this->HOST_BASE.';charset=UTF8', $this->HOST_USER, $this->HOST_PASS);
 		}
 		catch (Exception $e) {
 			die('Erreur : ' . $e->getMessage());
 		}
 	}
 
-	protected function executeQuerry($sql,$param){
+	protected function executeQuerry($sql,$params){
 		$stmt = $this->bdd->prepare($sql);
-		$stmt->execute($param);
+		$stmt->execute($params);
 		if ($this->bdd_debug){
-			echo print_r($param);
+			echo print_r($params);
+			echo $stmt->queryString;
+        	echo $stmt->errorCode();
+        	print_r($stmt->errorInfo());
+		}
+		return $stmt;
+	}
+
+	protected function executeQuerySpace($sql,$params){
+		$stmt = $this->bdd->prepare($sql);
+		$stmt->bindValue(':name', $params[0], PDO::PARAM_STR);
+		$stmt->execute();
+		if ($this->bdd_debug){
+			echo print_r($params);
+			echo $stmt->queryString;
+        	echo $stmt->errorCode();
+        	print_r($stmt->errorInfo());
+		}
+		return $stmt;
+	}
+
+	protected function executeQueryFilter($sql,$params){
+		$stmt = $this->bdd->prepare($sql);
+		$stmt->bindValue(':ptype', $params[0], PDO::PARAM_STR);
+		$stmt->bindValue(':pdesc', $params[1], PDO::PARAM_STR);
+		$stmt->bindValue(':mnom', $params[2], PDO::PARAM_STR);
+		$stmt->execute();
+		if ($this->bdd_debug){
+			echo print_r($params);
 			echo $stmt->queryString;
         	echo $stmt->errorCode();
         	print_r($stmt->errorInfo());
@@ -31,7 +58,7 @@ abstract class Bdd {
 	}
 
 	protected function toSpeak($array){
-		echo self::convertToXml($array);
+		echo json_encode($array);
 	}
 
 	protected function convertToXml($array){
@@ -58,4 +85,3 @@ abstract class Bdd {
 	}
 
 }
-?>

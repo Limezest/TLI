@@ -1,3 +1,28 @@
+<?php
+/* Smarty version 3.1.30-dev/53, created on 2016-04-28 09:21:15
+  from "/var/www/html/tli/templates/header.tpl" */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.30-dev/53',
+  'unifunc' => 'content_57220e4bbdcaa8_88633667',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    'a8e5c459b6071c9de110dea8e3a85666142389b3' => 
+    array (
+      0 => '/var/www/html/tli/templates/header.tpl',
+      1 => 1461849674,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+    'file:templates/signout.tpl' => 1,
+  ),
+),false)) {
+function content_57220e4bbdcaa8_88633667 (Smarty_Internal_Template $_smarty_tpl) {
+?>
 <nav class="navbar navbar-fixed-top navbar-inverse" role="navigation">
 	<div class="container">
 	  <!-- Brand and toggle get grouped for better mobile display -->
@@ -18,21 +43,25 @@
 				<li class="dropdown">
 					<a href="/tli/" class="dropdown-toggle" data-toggle="dropdown">Recherche <b class="caret"></b></a>
 					<ul class="dropdown-menu">
-						{*if $connected eq 1*}
+						
 							<li><a href="/tli/search">Recherche par mots-cl&#233;s</a></li>
-						{*/if*}
+						
 						<li><a href="/tli/advancedsearch">Recherche par filtres</a></li>
 					</ul>
 				</li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
-				{if $connected eq 0 }
+				<?php if ($_smarty_tpl->tpl_vars['connected']->value == 0) {?>
 					<a id="navbar--signin" class="btn btn-sm navbar-btn navbar--sign-btn" href="/tli/signin">Se connecter</a>
 					<a id="navbar--signup" class="btn btn-sm navbar-btn navbar--sign-btn" href="/tli/signup">S'enregistrer</a>
-				{else}
-					{include file="templates/signout.tpl"} 
-				{/if}
+				<?php } else { ?>
+					<?php $_smarty_tpl->_subTemplateRender("file:templates/signout.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
+ 
+				<?php }?>
 			</ul>
 		</div><!-- /.navbar-collapse -->
 	</div>
 </nav>
+<?php }
+}

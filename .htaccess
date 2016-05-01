@@ -1,0 +1,6 @@
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_URI} !^.*\.(jpg|css|js|gif|png)$ [NC]
+RewriteCond %{REQUEST_URI} !^lib.*$ [NC]
+RewriteRule ^\/tli\/(.*)$ /tli/index.php?page=$1 [QSA,NC,L]

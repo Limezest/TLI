@@ -9,5 +9,27 @@ body {
 	background-color: #00796B !important;
 	color: white !important;
 }
+.form-group {
+	width : 50%;
+	margin : auto;
+}
 
+.mt {
+	margin-top : 2% !important;
+}
+
+.display-none {
+	display : none !important;
+}
+
+.button-submit {
+	margin-top: 2%;
+}
 @media only screen and (max-width: 768px) { }
+
+span.tooltip[aria-hidden='true'] {
+	display: none;
+}
+span.tooltip[aria-hidden='false'] {
+	display: block;
+}
