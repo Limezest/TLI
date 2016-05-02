@@ -1,0 +1,9 @@
+Pour tester le projet :
+  démarrer la machine virtuelle TLI.ova
+  
+  si besoin les identifiants de la machine : root / Pa$$word
+
+phpMyAdmin est installé sur la machine
+	root / Pa$$word
+
+Apache2 utilise le dossier /var/www/html/tli/
