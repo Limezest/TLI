@@ -1,5 +1,6 @@
 Pour tester le projet :
   démarrer la machine virtuelle TLI.ova
+  à l'aide d'un navigateur, se rendre à l'adresse http://<ip de la machine>/tli/
   
   si besoin les identifiants de la machine : root / Pa$$word
 
