@@ -26,36 +26,7 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>1</td>
-                <td>Michael</td>
-                <td>Are formatted like this</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>Lucille</td>
-                <td>Do you like them?</td>
-            </tr>
-            <tr class="success">
-                <td>3</td>
-                <td>Success</td>
-                <td></td>
-            </tr>
-            <tr class="danger">
-                <td>4</td>
-                <td>Danger</td>
-                <td></td>
-            </tr>
-            <tr class="warning">
-                <td>5</td>
-                <td>Warning</td>
-                <td></td>
-            </tr>
-            <tr class="active">
-                <td>6</td>
-                <td>Active</td>
-                <td></td>
-            </tr>
-            </tbody>
+           </tbody>
     </table>
 </article>
+<script src="js/advancedsearch.js"></script>
