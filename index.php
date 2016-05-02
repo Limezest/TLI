@@ -18,13 +18,16 @@
 		if (preg_match('/^\D*$/i',$_GET['page'])) {
 			if(file_exists("templates/".$_GET['page'].'.tpl')) {
 				$page = $_GET['page'];
-			} elseif ($_GET['page'] != '') {
+			} elseif ($_GET['page'] == 'index.php') { $page = 'accueil';}
+			elseif ($_GET['page'] != '') {
 				header("HTTP/1.0 404 Not Found");
 				$page = "404";
 			}
-		} elseif (preg_match('/^\d{1,2}$/',$_GET['page'])) {
-			$page = "WS";
 		}
+		//  Redirection vers notre webservice
+		//  elseif (preg_match('/^\d{1,2}$/',$_GET['page'])) {
+		//	$page = "WS";
+		//  }
 	}
 	$smarty->assign("container",$page.".tpl");
 	

@@ -15,7 +15,7 @@
       {/if}
       {include file="templates/$container"} 
     </section>
-    <script src=="js/aria.js"></script>
+    <script src="js/aria.js"></script>
     <script src="js/bootstrap.min.js"></script>
   </body>
 </html>

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30-dev/53, created on 2016-05-01 17:17:40
+/* Smarty version 3.1.30-dev/53, created on 2016-05-02 11:12:29
   from "/var/www/html/tli/templates/index.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30-dev/53',
-  'unifunc' => 'content_57267274c95680_45330098',
+  'unifunc' => 'content_572719fd5a22c7_27735911',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f6a0713ff8da7be065b617bd067a4940b49f8a3b' => 
     array (
       0 => '/var/www/html/tli/templates/index.tpl',
-      1 => 1462137449,
+      1 => 1462180348,
       2 => 'file',
     ),
   ),
@@ -23,7 +23,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:templates/error.tpl' => 1,
   ),
 ),false)) {
-function content_57267274c95680_45330098 (Smarty_Internal_Template $_smarty_tpl) {
+function content_572719fd5a22c7_27735911 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html>
@@ -53,7 +53,7 @@ function content_57267274c95680_45330098 (Smarty_Internal_Template $_smarty_tpl)
  
     </section>
     <?php echo '<script'; ?>
- src=="js/aria.js"><?php echo '</script'; ?>
+ src="js/aria.js"><?php echo '</script'; ?>
 >
     <?php echo '<script'; ?>
  src="js/bootstrap.min.js"><?php echo '</script'; ?>
