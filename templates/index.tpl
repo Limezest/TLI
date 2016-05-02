@@ -2,6 +2,7 @@
 <html>
   <head>
     {include file='templates/head.tpl'}
+    <script src="http://code.jquery.com/jquery.js"></script>
   </head>
 
   <body>
@@ -14,7 +15,8 @@
       {/if}
       {include file="templates/$container"} 
     </section>
-    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="js/aria.js"></script>
     <script src="js/bootstrap.min.js"></script>
   </body>
 </html>
+
