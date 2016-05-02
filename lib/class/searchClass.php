@@ -10,11 +10,13 @@ class Search extends Bdd {
 					JOIN symptome s ON s.idS = sp.idS
 					JOIN keySympt ks ON ks.idS = s.idS
 					JOIN keywords k ON k.idK = ks.idK
-					WHERE name =?";
+					WHERE name =:name
+					ORDER BY m.nom";
 	private $sql_filter ="	SELECT p.type AS Type, p.desc AS Description, m.nom AS Meridien, m.element AS Element 
-							FROM patho p 
-							JOIN meridien m ON p.mer = m.code 
-							WHERE p.type LIKE %?% AND p.desc LIKE %?% AND m.nom LIKE %?%";
+					FROM patho p 
+					JOIN meridien m ON p.mer = m.code 
+					WHERE p.type LIKE %:ptype% AND p.desc LIKE %:pdesc% AND m.nom LIKE %:mnom%
+					ORDER BY p.type";
 
 	public function __construct($post){
 		parent::__construct();
@@ -35,13 +37,13 @@ class Search extends Bdd {
 		}
 	}
 	private function searchKeyword($post){
-		$stmt=parent::executeQuerry($this->sql_keyword,array($post["keyword"]));
+		$stmt=parent::executeQuerySpace($this->sql_keyword,array($post["keyword"]));
 		parent::toSpeak(self::convertToArray($stmt));
 	}
 
 
 	private function searchFilter($post){
-		$stmt=parent::executeQuerry($this->sql_filter,array($post["champ1"],$post["champ2"],$post["champ3"]));
+		$stmt=parent::executeQueryFilter($this->sql_filter,array($post["description"],$post["patho"],$post["meridien"]));
 		parent::toSpeak(self::convertToArray($stmt));
 	}
 	
@@ -62,3 +64,4 @@ class Search extends Bdd {
 		return $error_msg;
 	}
 }
+
